@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="./task.css" />
   </head>
   <body>
-    <div class="task">
-      <input class="task__input" type="submit" placeholder="enter text" />
-      <button class="task__btm" type="submit">to add</button>
-      <ul class="task__ul">
-        <li class="task__ul__list">to do</li>
-        <li class="task__ul__list">to do</li>
-        <li class="task__ul__list">to do</li>
-      </ul>
+    <div class="box">
+      <div class="task">
+        <h2 class="task__head">List of tasks</h2>
+        <div class="task__box">
+          <input class="task__input" type="text" placeholder="enter task" />
+          <button class="task__btm__add" type="submit">to add</button>
+        </div>
+        <div class="task__ul__box">
+          <button class="task__btm__dlt" type="submit">X</button>
+          <ul class="task__ul">
+            <li class="task__ul__chaked">to do</li>
+            <li class="task__ul__chaked">to do</li>
+            <li class="task__ul__chaked">to do</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </body>
 
-  <skript src="./task.js"></skript>
+  <script src="./task.js"></script>
 </html>
