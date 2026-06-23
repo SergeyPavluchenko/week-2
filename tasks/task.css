@@ -62,12 +62,6 @@ text-align: center;
 }
 
 
-.task__btm__dlt{}
-
-.task__ul__box{
-        list-style-type: none;
-
-}
 
 .task__ul{
     list-style-type: none;
@@ -79,10 +73,16 @@ text-align: center;
 }
 
 .task__ul li{
+    text-align: left;
     cursor: pointer;
     font-size: 18px;
-    padding: 12px 10px 12px 50px;
+    width: 530px;
+    padding: 12px 10px 12px 50px;    
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     word-break: break-all;
 }
 
 
@@ -112,4 +112,18 @@ text-align: center;
     top: 9px;
     left: 14px;
     color: #fff;
+}
+
+.task__ul li span{
+   position: absolute;
+   top: 5px;
+   right: 0;
+   width: 40px;
+   height: 40px;
+   color: #555;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 10px;
+   font-size: 23px;
 }
