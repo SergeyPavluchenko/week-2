@@ -2,7 +2,7 @@ const tasks = document.querySelector('.task__input')
 const taskBtn = document.querySelector('.task__btm__add')
 const taskList = document.querySelector('.task__ul')
 
-const hendleAddTask = (e) => {
+const handleAddTask = (e) => {
     e.preventDefault()
     const value = tasks.value
     if (value === '') {
@@ -11,14 +11,17 @@ const hendleAddTask = (e) => {
         addTask(value)
         tasks.value = ''
 
-        const arr = JSON.parse(localStorage.getItem('tasks')) || []
-        arr.push(value)
-
-        localStorage.setItem('tasks', JSON.stringify(arr))
+        saveTask(value)
     }
 }
 
-function showTasks() {
+function saveTask(value) {
+    const arr = JSON.parse(localStorage.getItem('tasks')) || []
+    arr.push(value)
+    localStorage.setItem('tasks', JSON.stringify(arr))
+}
+
+function loadTask() {
     const arr = JSON.parse(localStorage.getItem('tasks')) || []
     arr.forEach(task => addTask(task));
 }
@@ -34,22 +37,35 @@ function addTask(value) {
     li.appendChild(span)
 }
 
-
-const hendleClick = (e) => {
+const handleToggle = (e) => {
     if (e.target.tagName === 'LI') {
         e.target.classList.toggle('task__ul__chaked')
-    } else if (e.target.tagName === 'SPAN') {
-        e.target.parentElement.remove()
+    } else {
+        return
+    }
+}
+
+const handleDelete = (e) => {
+    if (e.target.tagName === 'SPAN') {
+        const li = e.target.parentElement
+
+        const arrIdx = Array.from(taskList.children).indexOf(li)
+
+        li.remove()
+
+        const arr = JSON.parse(localStorage.getItem('tasks')) || []
+        arr.splice(arrIdx, 1)
+        localStorage.setItem('tasks', JSON.stringify(arr))
+
     }
 }
 
 
 
-function saveLoad() {
-
-}
-
-window.addEventListener('load', showTasks)
-taskList.addEventListener('click', hendleClick)
-taskBtn.addEventListener('click', hendleAddTask);
+window.addEventListener('load', loadTask)
+taskList.addEventListener('click', (e) => {
+    handleToggle(e)
+    handleDelete(e)
+})
+taskBtn.addEventListener('click', handleAddTask);
 
