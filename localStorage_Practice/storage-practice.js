@@ -1,19 +1,25 @@
 const form = document.querySelector(".form-input")
 const searchField = document.querySelector(".search")
+const clearButton = document.querySelector(".clear-button")
 
 
 
 const hendleSubmit = (e) => {
     e.preventDefault()
-    localStorage.setItem('localStorageKey', searchField.value)
+    localStorage.setItem('savedText', searchField.value)
     searchField.value = '';
 }
 
-const hendleLoad = () => {
-    const saved = localStorage.getItem('localStorageKey') ?? ""
+const handleLoad = () => {
+    const saved = localStorage.getItem('savedText') ?? ""
     searchField.value = saved
 
 }
 
-window.addEventListener('load', hendleLoad)
+const handleClear = () => {
+    localStorage.removeItem('savedText')
+}
+
+window.addEventListener('load', handleLoad)
 form.addEventListener('submit', hendleSubmit)
+clearButton.addEventListener('click', handleClear)
