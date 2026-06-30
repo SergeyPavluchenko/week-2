@@ -1,16 +1,17 @@
 const form = document.querySelector('.form-input')
 const inputSearch = document.querySelector('.search')
 const inputText = document.querySelector('.output')
+const errorMessage = document.querySelector('.error')
 
-const hendleEvent =
+const handleSubmit =
     (event) => {
         event.preventDefault()
 
         if (inputSearch.value === '') {
-            alert('Enter text')
-            console.log('Enter text');
+            errorMessage.textContent = 'Enter text'
             return
         }
+        errorMessage.textContent = ''
         inputText.textContent = inputSearch.value
         console.log(inputSearch.value);
         inputSearch.value = ''
@@ -23,4 +24,4 @@ const hendleEvent =
 
 
 
-form.addEventListener('submit', hendleEvent)
+form.addEventListener('submit', handleSubmit)
