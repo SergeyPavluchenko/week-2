@@ -4,33 +4,25 @@
 
 const technologies = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js']
 
-for (const technologi of technologies) {
-    console.log(technologi);
-}
-
+technologies.forEach(technology => {
+    console.log(technology);
+})
 // === TASK 2 ===
 /*Use map to create a new array with uppercase technology names.  */
 
-
-const technologiesMap = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js']
-
-const technologiesUpperCase = technologiesMap.map((technologiMap) => {return technologiMap.toUpperCase() })
-console.log(technologiesUpperCase);
+const upperCaseTechnologies = technologies.map((technology) => technology.toUpperCase())
+console.log(upperCaseTechnologies);
 
 // === TASK 3 ===
 /*Use filter to show only technologies longer than 4 characters*/
 
-const technologiesFilter = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js']
+const longTechnologies = technologies.filter(technology => technology.length > 4)
 
-const technologiesLength = technologiesFilter.filter(technologiFilter => technologiFilter.length > 4)
-
-console.log(technologiesLength);
+console.log(longTechnologies);
 
 
 // === TASK 4 ===
 /**Use find to find JavaScript */
 
-
-const technologiesFind = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js']
-const firstValue = technologiesFind.find(tech => tech === 'JavaScript')
-console.log(firstValue);
+const javascript = technologies.find(technology => technology === 'JavaScript')
+console.log(javascript);
