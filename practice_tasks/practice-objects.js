@@ -21,10 +21,7 @@ console.log(user.isLearning);
 user.skills.push("React");
 console.log(user.skills);
 
-const summary = (user) => {
-  console.log(user.name);
-  console.log(user.role);
-  console.log(user.skills);
-  console.log(user.isLearning);
+const createUserSummary = (user) => {
+  return `${user.name} is ${user.role}. Skills: ${user.skills.join(", ")}.`;
 };
-summary(user);
+console.log(createUserSummary(user));
